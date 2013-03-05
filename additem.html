@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--John Cardiff-Winchell
+VFW 1303
+Project 1 -->
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="keyword" content="Cars, Inventory, Car lot"/>
+		<meta name="description" content="Inventory of cars on lot."/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="viewport" content="user-scalable=no, width=device-width"/>
+		<title> Car lot inventory </title>
+	</head>
+	
+	<body>
+		<h1>Car inventory log</h1>
+		<nav>
+			<a href="#"id="clear">Clear Stored Data</a>
+			<a href="#"id="display">Display Stored Data</a>
+		</nav>
+	</body>
+		<form action="" method="post" id="vehLib">
+			<fieldset id="vehicle">
+				<legend>Add a vehicle</legend>
+				<ul id="entry"> 
+					<li>
+						<label for="newUsed">Is this vehicle new or used?</label> 
+					</li>
+			<br>
+					<ul>
+						<li>
+							<input type="radio" Checked value="New" id="new" name="newUsed"/><label for="new">New</label>
+						</li>
+						<li>
+							<input type="radio" value="Used" id="used" name="newUsed"/><label for="used">Used</label>						
+						</li>
+					</ul>
+			<br>
+					<li id="make">
+						<label for="make">Vehicle Make<br></label>
+						<select id="make">
+							<option value="chevrolet">Chevrolet</option>
+							<option value="ford">Ford</option>
+							<option value="buick">Buick</option>
+							<option value="dodge">Dodge</option>
+							<option value="jeep">Jeep</option>
+						</select>
+					</li>
+			<br>
+					<li id="model">
+						<label for="model">Vehicle Model<br></label>
+						<select id="model">
+							<option value="cruze">Cruze</option>
+							<option value="impala">Impala</option>
+							<option value="cobalt">Cobalt</option>
+							<option value="camaro">Camaro</option>
+							<option value="focus">Focus</option>
+							<option value="explorer">Explorer</option>
+							<option value="fusion">Fusion</option>
+							<option value="f-150">F-150</option>
+							<option value="regal">Regal</option>
+							<option value="lacrosse">Lacrosse</option>
+							<option value="enclave">Enclave</option>
+							<option value="century">Century</option>
+							<option value="viper">Viper</option>
+							<option value="ram">Ram</option>
+							<option value="dart">Dart</option>
+							<option value="durango">Durango</option>
+							<option value="wrangler">Wrangler</option>
+							<option value="liberty">Liberty</option>
+							<option value="patriot">Patriot</option>
+							<option value="compass">Compass</option>
+						</select>
+					</li>
+			<br>
+					<li>
+						<label for="year">Year<br><input type="text"id="year"/></label> 
+					</li>
+			<br>
+					<li>
+						<label for="mileage">How many miles are on the vehicle?<br><input type="text"id="mileage"/></label> 
+					</li>
+			<br>
+					<li id="condition">
+						<label for="condition">Vehicle Condition<br><input type="range"name="condition"min="1"max="2"id="condition"/></label>
+					</li>
+			<br>	
+					<li>
+						<label for="date">Date of input<br><input type="date"id="date"/></label>
+					</li>
+			<br>
+					<li>
+						<label for="notes">Additional information<br></label><textarea id="notes"></textarea>
+					</li>
+				</ul> 
+			</fieldset> 
+		<footer>
+			<input type="button"value="submit"id="submit"/>
+			<input type="hidden"value="true"id="hidden"/>
+		</footer>		
+		</form>
+	</body>
+</html>
