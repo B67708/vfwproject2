@@ -76,6 +76,61 @@ function toggle(x){
 	
 }
 
+// Making save data function
+function submitData(){
+	var id = Math.floor(Math.random()*5551212);
+	
+// Gathering data in an object. Object has array with form label and input label
+	getRadio();
+	var item ={};
+		item.newUsed =["New or Used: ", gid("newUsed").value];
+		item.make =["Make: ", gid("make").value];
+		item.model =["Model: ", gid("model").value];
+		item.year =["Year: ", gid("year").value];
+		item.mileage =["Mileage: ", gid("mileage").value];
+		item.condition =["Condition: ", newUsedValue];		
+		item.date =["Date: ", gid("date").value];
+		item.notes =["Notes: ", gid("notes").value];
+		
+// Use stringify to convert object to string and save data to local storage
+	localStorage.setItem(id, JSON.stringify(item));
+	alert("Vehicle added!")
+		
+}
+
+// This function displays data to the browser
+function getData(){
+	toggle("on");
+	if(localStorage.length === 0){
+		alert("Local storage is empty.");
+	}
+	var createDiv = document.createElement("div");
+	createDiv.setAttribute("id", "item");
+	var createUl = document.createElement("ul");
+	createDiv.appendChild(createUl);
+	document.body.appendChild(createDiv);
+	gid("item").style.display = "block";
+	for(var i=0, j=localStorage.length; i<j; i++){
+		var createLi = document.createElement("li");
+		createUl.appendChild(createLi);
+		var key = localStorage.key(i)
+		var value = localStorage.getItem(key);
+		
+// Converts string to object with JSON parse		
+		var object = JSON.parse(value);
+		var sublist = document.createElement("ul");
+		createLi.appendChild(sublist);
+		for (var w in object){
+			var createSubLi = document.createElement("li");
+			subList.appendchild(createSubLi);
+			var subText = object[v] [0] + " " + object[v] [1];
+			createSubLi.innerHTML = subtext;
+			
+		}			
+	}
+	
+	
+}
 	
 // Variable Defaults
 var makeList = ["--Choose a make--", "Chevrolet", "Ford", "Buick", "Dodge", "Jeep"],
