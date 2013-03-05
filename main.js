@@ -15,7 +15,7 @@ function dropDown1(){
 	var formTag = document.getElementsByTagName("form"),
 		pickLi = gid("make"),
 		createSelect = document.createElement("select");
-		createSelect.setAttribute("id", "make");
+		createSelect.setAttribute("id", "makes");
 		for(var i=0, j=makeList.length; i<j; i++){
 			var makeOption = document.createElement("option");
 			var optionTxt = makeList[i];
@@ -31,7 +31,7 @@ function dropDown2(){
 	var formTag = document.getElementsByTagName("form"),
 		pickLi = gid("model"),
 		createSelect = document.createElement("select");
-		createSelect.setAttribute("id", "model");
+		createSelect.setAttribute("id", "models");
 		for(var i=0, j=modelList.length; i<j; i++){
 			var makeOption = document.createElement("option");
 			var optionTxt = modelList[i];
@@ -83,12 +83,12 @@ function submitData(){
 // Gathering data in an object. Object has array with form label and input label
 	getRadio();
 	var item ={};
-		item.newUsed =["New or Used: ", gid("newUsed").value];
-		item.make =["Make: ", gid("make").value];
-		item.model =["Model: ", gid("model").value];
+		item.newUsed =["New or Used: ", newUsedValue];
+		item.make =["Make: ", gid("makes").value];
+		item.model =["Model: ", gid("models").value];
 		item.year =["Year: ", gid("year").value];
 		item.mileage =["Mileage: ", gid("mileage").value];
-		item.condition =["Condition: ", newUsedValue];		
+		item.condition =["Condition: ", gid("condition").value];	
 		item.date =["Date: ", gid("date").value];
 		item.notes =["Notes: ", gid("notes").value];
 		
@@ -118,23 +118,31 @@ function getData(){
 		
 // Converts string to object with JSON parse		
 		var object = JSON.parse(value);
-		var sublist = document.createElement("ul");
-		createLi.appendChild(sublist);
-		for (var w in object){
-			var createSubLi = document.createElement("li");
-			subList.appendchild(createSubLi);
-			var subText = object[v] [0] + " " + object[v] [1];
-			createSubLi.innerHTML = subtext;
+		var subList = document.createElement("ul");
+		createLi.appendChild(subList);
+		for(var y in object){
+		var createSubLi = document.createElement("li");
+		createLi.appendChild(createSubLi);
+		var SubText = object[y] [0] +" "+ object[y] [1];
+		createSubLi.innerHTML = SubText;
 			
 		}			
 	}
 	
 	
 }
+
+//This function clears local storage data
+function clearData(){
+	localStorage.clear();
+	alert("Vehicle deleted!");
+	window.location.reload();
+} 
 	
 // Variable Defaults
 var makeList = ["--Choose a make--", "Chevrolet", "Ford", "Buick", "Dodge", "Jeep"],
-	modelList = ["--Choose a model--", "Cruze", "Impala", "Cobalt", "Camaro", "Focus", "Explorer", "Fusion", "F-150", "Regal", "Lacrosse", "Enclave", "Century", "Viper", "Ram", "Dart", "Durango", "Wrangler", "Liberty", "Patriot", "Compass"];
+	modelList = ["--Choose a model--", "Cruze", "Impala", "Cobalt", "Camaro", "Focus", "Explorer", "Fusion", "F-150", "Regal", "Lacrosse", "Enclave", "Century", "Viper", "Ram", "Dart", "Durango", "Wrangler", "Liberty", "Patriot", "Compass"],
+	newUsedValue;
 dropDown1();
 dropDown2();
 
